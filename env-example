@@ -1,0 +1,12 @@
+COMPOSE_PROJECT_NAME=iptv
+HLS_VERSION=8.4.8
+###
+### a.) Leave blank, to listen on all interfaces (no trailing colon ':')
+###    HLS_HOST_LISTEN_ADDR=
+### b.) If an IP is specified, note the trailing colon ':'
+###    HLS_HOST_LISTEN_ADDR=127.0.0.1:
+###
+#HLS_HOST_LISTEN_ADDR=
+HLS_HOST_PORT=8080
+HLS_CONTAINER_LISTEN_ADDR=127.0.0.1
+HLS_CONTAINER_PORT=8080

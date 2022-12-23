@@ -1,0 +1,50 @@
+version: '3.5'
+
+################################################################################
+# SERVICES
+################################################################################
+services:
+
+  # ------------------------------------------------------------
+  # HLS-Proxy
+  # ------------------------------------------------------------
+  hls:
+    build:
+      context: ./
+      args:
+        - VERSION=${HLS_VERSION:-8.4.8}
+        - ADDR=${HLS_CONTAINER_LISTEN_ADDR:-0.0.0.0}
+        - PORT=${HLS_CONTAINER_PORT:-8080}
+    container_name: hls-proxy
+    hostname: hls-proxy
+    restart: unless-stopped
+    ports:
+      - "${HLS_HOST_LISTEN_ADDR:-}${HLS_HOST_PORT:-8080}:${HLS_CONTAINER_PORT:-8080}"
+    volumes:
+#      - hls-data:/opt/hlsp/config/
+      - ./config/:/opt/hlsp/config/
+    networks:
+      hls-proxy:
+#        ipv4_address: 172.16.237.10
+
+
+################################################################################
+# NETWORK
+################################################################################
+networks:
+  hls-proxy:
+    driver: bridge
+#    driver_opts:
+#      com.docker.network.enable_ipv6: "false"
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 172.16.237.0/24
+#          gateway: 172.16.237.1
+
+
+################################################################################
+# VOLUMES
+################################################################################
+#volumes:
+#  hls-data:

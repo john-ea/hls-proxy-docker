@@ -1,0 +1,43 @@
+# -------------------------------------------------------------------------------------------------
+# Default configuration
+# -------------------------------------------------------------------------------------------------
+# top-most EditorConfig file
+root = true
+
+# Default for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.json]
+indent_style = space
+indent_size = 4
+insert_final_newline = false
+
+# -------------------------------------------------------------------------------------------------
+# Git Repository
+# -------------------------------------------------------------------------------------------------
+[.travis.yml]
+indent_style = space
+indent_size = 2
+
+# -------------------------------------------------------------------------------------------------
+# Configuration and Scripts
+# -------------------------------------------------------------------------------------------------
+[{docker-compose.yml,docker-compose-override.yml,docker-compose-override.yml-example}]
+indent_style = space
+indent_size = 2
+
+[{Dockerfile,Dockerfile.sample}]
+indent_style = space
+indent_size = 4
+
+# -------------------------------------------------------------------------------------------------
+# Documentation
+# -------------------------------------------------------------------------------------------------
+[*.md]
+indent_style = space
+trim_trailing_whitespace = false
+indent_size = 2
